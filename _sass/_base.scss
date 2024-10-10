@@ -224,9 +224,23 @@ aside {
     background-color: $theme-secondary;
 }
 
+.navbar-brand,
 nav .logo-img {
-    height: 30px;
-    float: left;
+    display: block;
+    width: calc(100% - 68px);
+    margin-left: 1.5%;
+    margin-right: auto;
+}
+
+@media (min-width: 576px) {
+    .navbar-brand,
+    nav .logo-img {
+        display: block;
+        width: unset;
+        max-height: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 // Homepage Header
