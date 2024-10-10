@@ -18,7 +18,7 @@
 	color: $color;
 	background-color: $background;
 	border-color: $border;
-	-webkit-text-stroke: 1px $text-stroke;
+	-webkit-text-stroke: 0px $text-stroke;
 	@include transition-all;
 
 	&:hover,
@@ -64,6 +64,13 @@
 @mixin serif-font()
 {
 	font-family: "phosphatepro-solid",sans-serif
+}
+
+@mixin p-font()
+{
+	font-family: "dm-sans", sans-serif;
+	font-weight: 400;
+	font-style: normal;
 }
 
 @mixin heading-font()

@@ -5,7 +5,7 @@ body {
 }
 
 body {
-    @include serif-font;
+    @include p-font;
 }
 
 hr {
@@ -34,12 +34,30 @@ h1 {
     text-shadow: 2px 2px 0px #2b2746, -2px -2px 0px #2b2746, 2px -2px 0px #2b2746, -2px 2px 0px #2b2746, 2px 2px 0px #2b2746;
 }
 
-h2,
-h3,
+h2 {
+    font-weight: 400;
+    font-family: "flegrei", sans-serif;
+    text-transform: uppercase;
+    color: #ff6040;
+    margin-bottom: .5em;
+    -webkit-text-stroke: .03em #f9ec1e;
+    text-shadow: -2px 2px 0 #3b3539;
+    transition: 20ms;
+}
+
+h3 {
+    @include serif-font;
+    color: #f7ec1e;
+    -webkit-text-stroke: 1px #3c332d;
+}
 h4,
 h5,
 h6 {
-    @include heading-font;
+    @include serif-font;
+    color: #f7ec1e;
+    -webkit-text-stroke: 1px #3c332d;
+    font-size: .9em;
+    line-height: 1.2em;
 }
 
 p {
@@ -61,6 +79,11 @@ p {
 .bg-light {
     background-color: $theme-light;
     color: $theme-dark;
+}
+
+.bg-light h3{
+    color: $theme-dark;
+    -webkit-text-stroke: unset;
 }
 
 .text-faded {
@@ -115,11 +138,11 @@ aside {
 }
 
 .navbar-default {
-    @include heading-font;
+    @include serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
         color: $theme-primary;
-        @include heading-font;
+        @include serif-font;
         font-weight: 700;
         &:hover,
         &:focus {
@@ -131,8 +154,8 @@ aside {
             > a,
             > a:focus {
                 font-weight: 700;
-                font-size: 20px;
-                color: $theme-light;
+                font-size: 26px;
+                color: $theme-yellow;
                 &:hover {
                     color: $theme-primary;
                 }
@@ -140,7 +163,7 @@ aside {
             &.active {
                 > a,
                 > a:focus {
-                    color: $theme-primary !important;
+                    color: $theme-light !important;
                     background-color: transparent;
                     &:hover {
                         background-color: transparent;
@@ -160,7 +183,7 @@ aside {
         }
         .nav > li > a,
         .nav > li > a:focus {
-            color: $theme-primary;
+            color: $theme-yellow;
             &:hover {
                 color: white;
             }
@@ -169,7 +192,7 @@ aside {
             background-color: $theme-secondary;
             .navbar-header .navbar-brand {
                 color: $theme-primary;
-                font-size: 20px;
+                font-size: 26px;
                 &:hover,
                 &:focus {
                     color: darken($theme-primary, 10%);
@@ -177,9 +200,9 @@ aside {
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: $theme-primary;
+                color: $theme-yellow;
                 &:hover {
-                    color: $theme-primary;
+                    color: $theme-light;
                 }
             }
         }
@@ -204,27 +227,36 @@ aside {
 nav .logo-img {
     height: 30px;
     float: left;
-    margin-top: -16px;
-    margin-right: 12px;
 }
 
 // Homepage Header
+
+.hero-image-container{
+    min-height: 50rem;
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
 
 header {
     position: relative;
     width: 100%;
     min-height: auto;
-    @include background-cover;
-    background-position: center;
-    background-image: url('../img/background.jpg');
+    // @include background-cover;
+    // background-position: center;
+    // background-image: url('../img/background.jpg');
     text-align: center;
     color: white;
     .header-content {
         position: relative;
         text-align: center;
-        padding: 17vh 1.6rem 9vh;
+        // padding: 17vh 1.6rem 9vh;
         width: 100%;
         .header-content-inner {
+            padding:24px;
+            max-width:1080px;
+            margin:auto;
             h1 {
                 font-weight: 700;
                 margin-top: 0;
@@ -236,15 +268,16 @@ header {
             p {
                 font-weight: 500;
                 color: white;
-                font-size: 22px;
+                font-size: 18px;
                 line-height: 1.25;
                 margin-bottom: 50px;
-                text-shadow: 0 0 8px #1a1926;
             }
         }
     }
     @media (min-width: 768px) {
         min-height: 100%;
+        padding-top:64px;
+        /*
         .header-content {
             position: absolute;
             top: 60%;
@@ -264,7 +297,7 @@ header {
                     margin-right: auto;
                 }
             }
-        }
+        }*/
     }
 }
 
@@ -409,7 +442,7 @@ header {
 }
 
 .btn-primary {
-    @include button-variant(#608200, $theme-primary, $theme-primary-border, #48733e);
+    @include button-variant($theme-yellow, $theme-primary, $theme-primary-border, #48733e);
     box-shadow: 0px 4px 14px 0px #d3cde9ba;
 }
 
@@ -437,33 +470,18 @@ header {
 }
 
 .btn {
-    @include heading-font;
+    @include serif-font;
     border-radius: 16px;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 26px;
+    line-height: 36px;
+    padding-top: 4px;
+    padding-bottom: 8px;
 }
 
 .btn-xl {
     padding: 12px 24px;
     font-size: 28px;
-}
-
-.btn-jup {
-    border-radius: 22px;
-    border: 2px solid #C6F462;
-    background: #141726;
-    box-shadow: 0px 5px 12px 0px rgba(184, 177, 214, 0.46);
-    display: inline-flex;
-    padding: 8px 12px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    color: #FFF;
-    font-family: "Gloria Hallelujah";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 // Contact
