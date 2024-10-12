@@ -31,7 +31,12 @@ h1 {
     @include heading-font;
 //  -webkit-text-stroke: 1.5px #2b2746;
     -webkit-font-smoothing: antialiased;
-    text-shadow: 2px 2px 0px #2b2746, -2px -2px 0px #2b2746, 2px -2px 0px #2b2746, -2px 2px 0px #2b2746, 2px 2px 0px #2b2746;
+    text-transform: uppercase;
+    color: #ff6040;
+    margin-bottom: .5em;
+    -webkit-text-stroke: .01rem #f9ec1e;
+    text-shadow: -2px 2px 0 #3b3539;
+    transition: 20ms;
 }
 
 h2 {
